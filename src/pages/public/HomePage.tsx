@@ -2,17 +2,53 @@ import { Link } from 'react-router-dom';
 import {
   Zap, QrCode, RefreshCw, Smartphone, ArrowRight, Check,
   Star, Users, TrendingUp, Clock, Menu, X, ChevronRight,
-  MapPin, Phone, Wallet, Globe, Instagram,
+  MapPin, Phone, Wallet, Globe, Instagram, Trash2, Layers, BarChart3,
 } from 'lucide-react';
 import { useState, useEffect } from 'react';
 
 const HERO_IMG = 'https://images.unsplash.com/photo-1559136555-9303baea8ebd?auto=format&fit=crop&w=900&q=80';
 
 const STATS = [
-  { value: '88%', label: 'of paper cards thrown away within a week', source: 'Adobe' },
-  { value: '27.9M', label: 'paper cards printed every single day', source: 'Statista' },
-  { value: '10×', label: 'more engagement than paper cards', source: 'Industry avg.' },
-  { value: '2 sec', label: 'to share your full contact details', source: 'SmartLink' },
+  {
+    icon: Trash2,
+    value: '88%',
+    label: 'of paper cards thrown away within a week',
+    detail: 'Your contact lands in the bin before they even get home.',
+    source: 'Adobe',
+    color: 'text-red-400',
+    bg: 'bg-red-500/10',
+    border: 'border-red-500/20',
+  },
+  {
+    icon: Layers,
+    value: '27.9M',
+    label: 'paper cards printed every day globally',
+    detail: 'The printing never stops. Neither does the waste.',
+    source: 'Statista',
+    color: 'text-orange-400',
+    bg: 'bg-orange-500/10',
+    border: 'border-orange-500/20',
+  },
+  {
+    icon: BarChart3,
+    value: '10x',
+    label: 'more engagement vs paper cards',
+    detail: 'Clickable links beat a printed number every time.',
+    source: 'Industry avg.',
+    color: 'text-emerald-400',
+    bg: 'bg-emerald-500/10',
+    border: 'border-emerald-500/20',
+  },
+  {
+    icon: Clock,
+    value: '2 sec',
+    label: 'to share your complete contact details',
+    detail: 'QR scan to live card to contact saved. Done.',
+    source: 'SmartLink',
+    color: 'text-sky-400',
+    bg: 'bg-sky-500/10',
+    border: 'border-sky-500/20',
+  },
 ];
 
 const FEATURES = [
@@ -25,14 +61,14 @@ const FEATURES = [
   {
     icon: RefreshCw,
     title: 'Always Up-to-Date',
-    desc: 'Change your phone number, add Instagram, update your logo — the QR never changes.',
-    points: ['Edit without reprinting', 'Real-time updates', 'Enable / disable anytime'],
+    desc: 'Change your phone number, add Instagram, update your logo. The QR never changes.',
+    points: ['Edit without reprinting', 'Real-time updates', 'Enable or disable anytime'],
   },
   {
     icon: Smartphone,
     title: 'One-Tap Everything',
-    desc: 'Your contacts can call, WhatsApp, pay via UPI, navigate to your location, and save your vCard — all from one page.',
-    points: ['Download contact (vCard)', 'WhatsApp & UPI support', 'Google Maps & Reviews'],
+    desc: 'Your contacts can call, WhatsApp, pay via UPI, navigate to your location, and save your vCard from one page.',
+    points: ['Download contact (vCard)', 'WhatsApp and UPI support', 'Google Maps and Reviews'],
   },
 ];
 
@@ -40,12 +76,12 @@ const STEPS = [
   {
     step: '01',
     title: 'Create Your Card',
-    desc: 'Fill in your business details — name, phone, socials, UPI, maps link. Takes under 2 minutes.',
+    desc: 'Fill in your business details: name, phone, socials, UPI, maps link. Takes under 2 minutes.',
   },
   {
     step: '02',
     title: 'Share Your QR',
-    desc: 'Download your QR code and put it anywhere — banner, receipt, WhatsApp status, email signature.',
+    desc: 'Download your QR code and put it anywhere: banner, receipt, WhatsApp status, email signature.',
   },
   {
     step: '03',
@@ -70,7 +106,7 @@ const TESTIMONIALS = [
   {
     avatar: 'https://i.pravatar.cc/48?img=57',
     name: 'Arjun Mehta',
-    role: 'Founder, GreenBite Café',
+    role: 'Founder, GreenBite Cafe',
     quote: 'Added the Google review link to the card. Scans at checkout tripled my review count in the first month. Game changer.',
   },
 ];
@@ -101,7 +137,7 @@ export function HomePage() {
   return (
     <div className="min-h-screen bg-zinc-950 text-zinc-100 font-sans">
 
-      {/* ── Navbar ── */}
+      {/* Navbar */}
       <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${scrolled ? 'bg-zinc-950/90 backdrop-blur border-b border-zinc-800/60' : ''}`}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
           <Link to="/home" className="flex items-center gap-2 font-semibold text-lg">
@@ -109,7 +145,6 @@ export function HomePage() {
             <span>SmartLink</span>
           </Link>
 
-          {/* Desktop nav */}
           <nav className="hidden md:flex items-center gap-6 text-sm text-zinc-400">
             <button onClick={() => scrollTo('features')} className="hover:text-zinc-100 transition-colors">Features</button>
             <button onClick={() => scrollTo('how-it-works')} className="hover:text-zinc-100 transition-colors">How it works</button>
@@ -126,13 +161,11 @@ export function HomePage() {
             </Link>
           </div>
 
-          {/* Mobile hamburger */}
           <button className="md:hidden p-2 text-zinc-400" onClick={() => setMenuOpen(!menuOpen)}>
             {menuOpen ? <X size={20} /> : <Menu size={20} />}
           </button>
         </div>
 
-        {/* Mobile menu */}
         {menuOpen && (
           <div className="md:hidden bg-zinc-900 border-b border-zinc-800 px-4 pb-4 flex flex-col gap-3 text-sm">
             <button onClick={() => scrollTo('features')} className="text-left py-2 text-zinc-400">Features</button>
@@ -145,13 +178,11 @@ export function HomePage() {
         )}
       </header>
 
-      {/* ── Hero ── */}
+      {/* Hero */}
       <section className="relative pt-28 pb-20 px-4 sm:px-6 overflow-hidden">
-        {/* Background glow */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-emerald-500/5 rounded-full blur-3xl pointer-events-none" />
 
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-          {/* Left */}
           <div>
             <div className="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-medium px-3 py-1.5 rounded-full mb-6">
               <Zap size={12} /> The future of business networking
@@ -163,7 +194,7 @@ export function HomePage() {
             </h1>
 
             <p className="text-zinc-400 text-lg leading-relaxed mb-8 max-w-lg">
-              One QR code. Your phone, WhatsApp, UPI, location, and socials — all in a single scan.
+              One QR code. Your phone, WhatsApp, UPI, location, and socials in a single scan.
               Update it anytime. No reprints. No waste.
             </p>
 
@@ -191,18 +222,11 @@ export function HomePage() {
             </div>
           </div>
 
-          {/* Right — image + floating card preview */}
           <div className="relative hidden md:block">
-            <div className="relative rounded-2xl overflow-hidden border border-zinc-800 shadow-2xl">
-              <img
-                src={HERO_IMG}
-                alt="Professional networking"
-                className="w-full h-80 object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/60 to-transparent" />
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+              <img src={HERO_IMG} alt="Professional networking" className="w-full h-80 object-cover" />
             </div>
 
-            {/* Floating card preview */}
             <div className="absolute -bottom-6 -left-6 bg-zinc-900 border border-zinc-800 rounded-2xl p-4 shadow-xl w-56">
               <div className="flex items-center gap-3 mb-3">
                 <div className="w-10 h-10 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-emerald-400 font-bold text-sm">RS</div>
@@ -222,31 +246,51 @@ export function HomePage() {
                 <Zap size={9} /> Powered by SmartLink
               </div>
             </div>
-
-            {/* Glow ring */}
-            <div className="absolute inset-0 rounded-2xl ring-1 ring-emerald-500/10 pointer-events-none" />
           </div>
         </div>
       </section>
 
-      {/* ── Stats ── */}
-      <section id="stats" className="py-14 border-y border-zinc-800 bg-zinc-900/40">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6">
-          <p className="text-center text-xs uppercase tracking-widest text-zinc-600 mb-10 font-medium">Why paper cards don't work anymore</p>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {STATS.map(({ value, label, source }) => (
-              <div key={value} className="text-center">
-                <p className="text-3xl sm:text-4xl font-bold text-emerald-400 mb-1">{value}</p>
-                <p className="text-zinc-400 text-sm leading-snug mb-1">{label}</p>
-                <p className="text-zinc-600 text-xs">— {source}</p>
+      {/* Stats */}
+      <section id="stats" className="py-20 px-4 sm:px-6">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <p className="text-emerald-400 text-sm font-medium tracking-wide uppercase mb-3">The paper card problem</p>
+            <h2 className="text-3xl sm:text-4xl font-bold mb-4">The numbers don't lie</h2>
+            <p className="text-zinc-400 max-w-xl mx-auto">Paper business cards are expensive, wasteful, and forgettable. Here's what the data says.</p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            {STATS.map(({ icon: Icon, value, label, detail, source, color, bg, border }) => (
+              <div key={value} className={`relative bg-zinc-900 border ${border} rounded-2xl p-6 overflow-hidden hover:scale-[1.02] transition-transform`}>
+                <div className={`absolute -top-6 -right-6 w-24 h-24 ${bg} rounded-full blur-2xl pointer-events-none`} />
+
+                <div className={`inline-flex items-center justify-center w-10 h-10 rounded-xl ${bg} border ${border} mb-4`}>
+                  <Icon size={18} className={color} />
+                </div>
+
+                <p className={`text-4xl font-bold ${color} mb-2 tracking-tight`}>{value}</p>
+                <p className="text-zinc-200 text-sm font-medium mb-1 leading-snug">{label}</p>
+                <p className="text-zinc-500 text-xs leading-relaxed mb-4">{detail}</p>
+
+                <div className={`inline-flex items-center gap-1 text-xs ${color} opacity-60 border ${border} rounded-full px-2 py-0.5`}>
+                  Source: {source}
+                </div>
               </div>
             ))}
           </div>
+
+          <div className="mt-8 bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 text-center">
+            <p className="text-zinc-300 text-base">
+              The average professional spends{' '}
+              <span className="text-emerald-400 font-semibold">Rs. 5,000 to 15,000 per year</span> on business cards.
+              SmartLink costs <span className="text-emerald-400 font-semibold">Rs. 0</span> and your contact info is always current.
+            </p>
+          </div>
         </div>
       </section>
 
-      {/* ── Features ── */}
-      <section id="features" className="py-20 px-4 sm:px-6">
+      {/* Features */}
+      <section id="features" className="py-20 px-4 sm:px-6 border-t border-zinc-800">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-14">
             <p className="text-emerald-400 text-sm font-medium tracking-wide uppercase mb-3">What you get</p>
@@ -275,7 +319,7 @@ export function HomePage() {
         </div>
       </section>
 
-      {/* ── How it works ── */}
+      {/* How it works */}
       <section id="how-it-works" className="py-20 px-4 sm:px-6 bg-zinc-900/30 border-y border-zinc-800">
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-14">
@@ -285,9 +329,7 @@ export function HomePage() {
           </div>
 
           <div className="relative">
-            {/* Connector line */}
             <div className="hidden md:block absolute top-8 left-[calc(16.66%-1px)] right-[calc(16.66%-1px)] h-px bg-zinc-800" />
-
             <div className="grid md:grid-cols-3 gap-8">
               {STEPS.map(({ step, title, desc }) => (
                 <div key={step} className="relative text-center">
@@ -312,7 +354,7 @@ export function HomePage() {
         </div>
       </section>
 
-      {/* ── Testimonials ── */}
+      {/* Testimonials */}
       <section className="py-20 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-14">
@@ -343,7 +385,7 @@ export function HomePage() {
         </div>
       </section>
 
-      {/* ── Social proof strip ── */}
+      {/* Social proof strip */}
       <section className="py-10 border-y border-zinc-800 bg-zinc-900/30">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <div className="flex flex-wrap justify-center items-center gap-6 text-zinc-500 text-sm">
@@ -358,7 +400,7 @@ export function HomePage() {
         </div>
       </section>
 
-      {/* ── Final CTA ── */}
+      {/* Final CTA */}
       <section className="py-24 px-4 sm:px-6 relative overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 via-transparent to-zinc-950 pointer-events-none" />
         <div className="max-w-3xl mx-auto text-center relative">
@@ -372,19 +414,17 @@ export function HomePage() {
           <p className="text-zinc-400 text-lg mb-10 max-w-xl mx-auto">
             Create your first digital visiting card in minutes. Free forever.
           </p>
-          <div className="flex flex-wrap justify-center gap-4">
-            <Link
-              to="/login"
-              className="flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-bold px-8 py-4 rounded-xl transition-colors text-lg"
-            >
-              Create Your Free Card <ArrowRight size={18} />
-            </Link>
-          </div>
+          <Link
+            to="/login"
+            className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-bold px-8 py-4 rounded-xl transition-colors text-lg"
+          >
+            Create Your Free Card <ArrowRight size={18} />
+          </Link>
           <p className="text-zinc-600 text-sm mt-5">No credit card required. No expiry.</p>
         </div>
       </section>
 
-      {/* ── Footer ── */}
+      {/* Footer */}
       <footer className="border-t border-zinc-800 py-10 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2 text-zinc-400">
