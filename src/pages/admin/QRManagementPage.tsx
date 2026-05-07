@@ -15,8 +15,8 @@ import {
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 
-function formatDate(ts: { seconds: number }): string {
-  return new Date(ts.seconds * 1000).toLocaleDateString('en-IN', {
+function formatDate(ts: string): string {
+  return new Date(ts).toLocaleDateString('en-IN', {
     day: 'numeric', month: 'short', year: 'numeric',
   });
 }

@@ -16,8 +16,8 @@ export interface QRCard {
   logo_url?: string;
   qr_image_base64?: string;
   enabled: boolean;
-  created_at: { seconds: number; nanoseconds: number };
-  updated_at: { seconds: number; nanoseconds: number };
+  created_at: string;
+  updated_at: string;
 }
 
 export interface PublicCardData {

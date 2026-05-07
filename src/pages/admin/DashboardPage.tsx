@@ -26,9 +26,9 @@ function StatCard({ label, value, icon: Icon, accent }: {
   );
 }
 
-function formatDate(ts: { seconds: number } | undefined): string {
+function formatDate(ts: string | undefined): string {
   if (!ts) return '—';
-  return new Date(ts.seconds * 1000).toLocaleDateString('en-IN', {
+  return new Date(ts).toLocaleDateString('en-IN', {
     day: 'numeric', month: 'short', year: 'numeric',
   });
 }
@@ -58,7 +58,7 @@ export function DashboardPage() {
         <StatCard label="Active" value={active} icon={CheckCircle2} accent="bg-emerald-500/20" />
         <StatCard label="Disabled" value={disabled} icon={XCircle} accent="bg-red-500/10" />
         <StatCard label="This Month" value={cards.filter(c => {
-          const d = new Date(c.created_at.seconds * 1000);
+          const d = new Date(c.created_at);
           const now = new Date();
           return d.getMonth() === now.getMonth() && d.getFullYear() === now.getFullYear();
         }).length} icon={Clock} accent="bg-blue-500/10" />

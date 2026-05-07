@@ -179,10 +179,8 @@ export function HomePage() {
       </header>
 
       {/* Hero */}
-      <section className="relative pt-28 pb-20 px-4 sm:px-6 overflow-hidden">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-emerald-500/5 rounded-full blur-3xl pointer-events-none" />
-
-        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+      <section className="pt-36 pb-28 px-4 sm:px-6">
+        <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-16 items-center">
           <div>
             <div className="inline-flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-medium px-3 py-1.5 rounded-full mb-6">
               <Zap size={12} /> The future of business networking
@@ -242,7 +240,7 @@ export function HomePage() {
                   </div>
                 ))}
               </div>
-              <div className="mt-2 flex items-center justify-center gap-1 text-xs text-emerald-600 pt-1 border-t border-zinc-800">
+              <div className="mt-2 flex items-center justify-center gap-1 text-xs text-emerald-600 pt-1 border-zinc-800">
                 <Zap size={9} /> Powered by SmartLink
               </div>
             </div>
@@ -251,18 +249,17 @@ export function HomePage() {
       </section>
 
       {/* Stats */}
-      <section id="stats" className="py-20 px-4 sm:px-6">
+      <section id="stats" className="py-28 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-12">
+          <div className="text-center mb-16">
             <p className="text-emerald-400 text-sm font-medium tracking-wide uppercase mb-3">The paper card problem</p>
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">The numbers don't lie</h2>
             <p className="text-zinc-400 max-w-xl mx-auto">Paper business cards are expensive, wasteful, and forgettable. Here's what the data says.</p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {STATS.map(({ icon: Icon, value, label, detail, source, color, bg, border }) => (
-              <div key={value} className={`relative bg-zinc-900 border ${border} rounded-2xl p-6 overflow-hidden hover:scale-[1.02] transition-transform`}>
-                <div className={`absolute -top-6 -right-6 w-24 h-24 ${bg} rounded-full blur-2xl pointer-events-none`} />
+              <div key={value} className={`bg-zinc-900 border ${border} rounded-2xl p-7 hover:scale-[1.02] transition-transform`}>
 
                 <div className={`inline-flex items-center justify-center w-10 h-10 rounded-xl ${bg} border ${border} mb-4`}>
                   <Icon size={18} className={color} />
@@ -279,7 +276,7 @@ export function HomePage() {
             ))}
           </div>
 
-          <div className="mt-8 bg-zinc-900/60 border border-zinc-800 rounded-2xl p-6 text-center">
+          <div className="mt-10 bg-zinc-900/60 border border-zinc-800 rounded-2xl p-8 text-center">
             <p className="text-zinc-300 text-base">
               The average professional spends{' '}
               <span className="text-emerald-400 font-semibold">Rs. 5,000 to 15,000 per year</span> on business cards.
@@ -290,17 +287,17 @@ export function HomePage() {
       </section>
 
       {/* Features */}
-      <section id="features" className="py-20 px-4 sm:px-6 border-t border-zinc-800">
+      <section id="features" className="py-28 px-4 sm:px-6 border-t border-zinc-800">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-14">
+          <div className="text-center mb-18">
             <p className="text-emerald-400 text-sm font-medium tracking-wide uppercase mb-3">What you get</p>
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">Everything in one card</h2>
             <p className="text-zinc-400 max-w-xl mx-auto">No more juggling ten links. Your customers get everything they need from a single scan.</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-3 gap-8">
             {FEATURES.map(({ icon: Icon, title, desc, points }) => (
-              <div key={title} className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 hover:border-zinc-700 transition-colors group">
+              <div key={title} className="bg-zinc-900 border border-zinc-800 rounded-2xl p-8 hover:border-zinc-700 transition-colors group">
                 <div className="w-11 h-11 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mb-5 group-hover:bg-emerald-500/20 transition-colors">
                   <Icon size={20} className="text-emerald-400" />
                 </div>
@@ -320,9 +317,9 @@ export function HomePage() {
       </section>
 
       {/* How it works */}
-      <section id="how-it-works" className="py-20 px-4 sm:px-6 bg-zinc-900/30 border-y border-zinc-800">
+      <section id="how-it-works" className="py-28 px-4 sm:px-6 bg-zinc-900/30 border-y border-zinc-800">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-14">
+          <div className="text-center mb-18">
             <p className="text-emerald-400 text-sm font-medium tracking-wide uppercase mb-3">Simple setup</p>
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">Live in 3 steps</h2>
             <p className="text-zinc-400">From signup to sharing your QR in under 5 minutes.</p>
@@ -330,7 +327,7 @@ export function HomePage() {
 
           <div className="relative">
             <div className="hidden md:block absolute top-8 left-[calc(16.66%-1px)] right-[calc(16.66%-1px)] h-px bg-zinc-800" />
-            <div className="grid md:grid-cols-3 gap-8">
+            <div className="grid md:grid-cols-3 gap-10">
               {STEPS.map(({ step, title, desc }) => (
                 <div key={step} className="relative text-center">
                   <div className="w-16 h-16 rounded-2xl bg-zinc-900 border border-zinc-800 flex items-center justify-center mx-auto mb-5 relative z-10">
@@ -343,7 +340,7 @@ export function HomePage() {
             </div>
           </div>
 
-          <div className="text-center mt-12">
+          <div className="text-center mt-16">
             <Link
               to="/login"
               className="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-semibold px-8 py-3.5 rounded-xl transition-colors"
@@ -355,9 +352,9 @@ export function HomePage() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 px-4 sm:px-6">
+      <section className="py-28 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-14">
+          <div className="text-center mb-18">
             <div className="flex justify-center gap-0.5 mb-4">
               {[...Array(5)].map((_, i) => <Star key={i} size={16} className="text-emerald-400 fill-emerald-400" />)}
             </div>
@@ -365,9 +362,9 @@ export function HomePage() {
             <p className="text-zinc-400">Real people, real results.</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-3 gap-8">
             {TESTIMONIALS.map(({ avatar, name, role, quote }) => (
-              <div key={name} className="bg-zinc-900 border border-zinc-800 rounded-2xl p-6 hover:border-zinc-700 transition-colors">
+              <div key={name} className="bg-zinc-900 border border-zinc-800 rounded-2xl p-8 hover:border-zinc-700 transition-colors">
                 <div className="flex gap-0.5 mb-4">
                   {[...Array(5)].map((_, i) => <Star key={i} size={12} className="text-emerald-400 fill-emerald-400" />)}
                 </div>
@@ -386,7 +383,7 @@ export function HomePage() {
       </section>
 
       {/* Social proof strip */}
-      <section className="py-10 border-y border-zinc-800 bg-zinc-900/30">
+      <section className="py-14 border-y border-zinc-800 bg-zinc-900/30">
         <div className="max-w-4xl mx-auto px-4 text-center">
           <div className="flex flex-wrap justify-center items-center gap-6 text-zinc-500 text-sm">
             <span className="flex items-center gap-2"><Users size={14} className="text-emerald-500" /> Trusted by 1,000+ businesses</span>
@@ -401,9 +398,8 @@ export function HomePage() {
       </section>
 
       {/* Final CTA */}
-      <section className="py-24 px-4 sm:px-6 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-emerald-500/5 via-transparent to-zinc-950 pointer-events-none" />
-        <div className="max-w-3xl mx-auto text-center relative">
+      <section className="py-32 px-4 sm:px-6">
+        <div className="max-w-3xl mx-auto text-center">
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 mb-6">
             <Zap size={28} className="text-emerald-400" />
           </div>
@@ -425,7 +421,7 @@ export function HomePage() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-zinc-800 py-10 px-4 sm:px-6">
+      <footer className="border-t border-zinc-800 py-14 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2 text-zinc-400">
             <Zap size={16} className="text-emerald-500" />
