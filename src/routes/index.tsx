@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { Toaster } from 'react-hot-toast';
-import { AuthProvider } from '../contexts/AuthContext';
+import { AuthProvider, useAuth } from '../contexts/AuthContext';
 import { ProtectedRoute } from './ProtectedRoute';
 import { AdminLayout } from '../layouts/AdminLayout';
 import { LoginPage } from '../pages/auth/LoginPage';
@@ -11,6 +11,12 @@ import { QRGeneratorPage } from '../pages/admin/QRGeneratorPage';
 import { CardPage } from '../pages/public/CardPage';
 import { HomePage } from '../pages/public/HomePage';
 import { NotFoundPage } from '../pages/NotFoundPage';
+
+function RootRedirect() {
+  const { user, loading } = useAuth();
+  if (loading) return null;
+  return <Navigate to={user ? '/admin' : '/home'} replace />;
+}
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -35,7 +41,7 @@ export function AppRouter() {
             }}
           />
           <Routes>
-            <Route path="/" element={<Navigate to="/admin" replace />} />
+            <Route path="/" element={<RootRedirect />} />
             <Route path="/home" element={<HomePage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/card/:slug" element={<CardPage />} />
