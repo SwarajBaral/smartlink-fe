@@ -9,6 +9,7 @@ import { DashboardPage } from '../pages/admin/DashboardPage';
 import { QRManagementPage } from '../pages/admin/QRManagementPage';
 import { QRGeneratorPage } from '../pages/admin/QRGeneratorPage';
 import { CardPage } from '../pages/public/CardPage';
+import { HomePage } from '../pages/public/HomePage';
 import { NotFoundPage } from '../pages/NotFoundPage';
 
 const queryClient = new QueryClient({
@@ -35,6 +36,7 @@ export function AppRouter() {
           />
           <Routes>
             <Route path="/" element={<Navigate to="/admin" replace />} />
+            <Route path="/home" element={<HomePage />} />
             <Route path="/login" element={<LoginPage />} />
             <Route path="/card/:slug" element={<CardPage />} />
 
