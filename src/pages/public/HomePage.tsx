@@ -138,7 +138,7 @@ export function HomePage() {
     <div className="min-h-screen bg-zinc-950 text-zinc-100 font-sans">
 
       {/* Navbar */}
-      <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${scrolled ? 'bg-zinc-950/90 backdrop-blur border-b border-zinc-800/60' : ''}`}>
+      <header className={`fixed top-0 inset-x-0 z-50 py-4 transition-all duration-300 ${scrolled ? 'bg-zinc-950/90 backdrop-blur border-b border-zinc-800/60' : ''}`}>
         <div className="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
           <Link to="/home" className="flex items-center gap-2 font-semibold text-lg">
             <Zap size={20} className="text-emerald-400" />
@@ -152,7 +152,7 @@ export function HomePage() {
           </nav>
 
           <div className="hidden md:flex items-center gap-3">
-            <Link to="/login" className="text-sm text-zinc-400 hover:text-zinc-100 transition-colors">Login</Link>
+            <Link to="/login" className="text-sm text-zinc-400 hover:text-zinc-100 m-2 transition-colors">Login</Link>
             <Link
               to="/login"
               className="flex items-center gap-1.5 bg-emerald-500 hover:bg-emerald-400 text-zinc-950 font-semibold text-sm px-4 py-2 rounded-lg transition-colors"
@@ -287,9 +287,9 @@ export function HomePage() {
       </section>
 
       {/* Features */}
-      <section id="features" className="py-28 px-4 sm:px-6 border-t border-zinc-800">
+      <section id="features" className="py-20 px-4 sm:px-6 border-t border-zinc-800">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-18">
+          <div className="text-center mb-10">
             <p className="text-emerald-400 text-sm font-medium tracking-wide uppercase mb-3">What you get</p>
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">Everything in one card</h2>
             <p className="text-zinc-400 max-w-xl mx-auto">No more juggling ten links. Your customers get everything they need from a single scan.</p>
@@ -319,7 +319,7 @@ export function HomePage() {
       {/* How it works */}
       <section id="how-it-works" className="py-28 px-4 sm:px-6 bg-zinc-900/30 border-y border-zinc-800">
         <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-18">
+          <div className="text-center mb-10">
             <p className="text-emerald-400 text-sm font-medium tracking-wide uppercase mb-3">Simple setup</p>
             <h2 className="text-3xl sm:text-4xl font-bold mb-4">Live in 3 steps</h2>
             <p className="text-zinc-400">From signup to sharing your QR in under 5 minutes.</p>
@@ -354,7 +354,7 @@ export function HomePage() {
       {/* Testimonials */}
       <section className="py-28 px-4 sm:px-6">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-18">
+          <div className="text-center mb-10">
             <div className="flex justify-center gap-0.5 mb-4">
               {[...Array(5)].map((_, i) => <Star key={i} size={16} className="text-emerald-400 fill-emerald-400" />)}
             </div>
